@@ -1,2 +1,5 @@
-FROM nginx
-copy /app/frontend/index.html /usr/share/nginx/html
+FROM nginx:alpine
+
+# use the smaller Alpine-based nginx image to reduce size
+COPY /app/frontend/index.html /usr/share/nginx/html
+

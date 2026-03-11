@@ -1,5 +1,7 @@
 FROM python:3.13-alpine
 WORKDIR /app
 copy /app/backend/app.py /app
-RUN pip install flask psycopg2-binary
+RUN pip install --no-cache-dir flask psycopg2-binary
+
+# --no-cache-dir prevents pip from storing package cache, shrinking the final image size
 CMD [ "python","app.py" ]
