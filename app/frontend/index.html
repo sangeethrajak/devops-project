@@ -1,0 +1,42 @@
+<html>
+
+<body>
+
+<h2>Contact Form</h2>
+
+<form id="form">
+
+<input id="name" placeholder="Name">
+<input id="phone" placeholder="Phone">
+
+<button>Submit</button>
+
+</form>
+
+<script>
+
+document.getElementById("form").onsubmit = async (e)=>{
+
+e.preventDefault()
+
+await fetch("/submit",{
+
+method:"POST",
+headers:{"Content-Type":"application/json"},
+
+body:JSON.stringify({
+name:document.getElementById("name").value,
+phone:document.getElementById("phone").value
+})
+
+})
+
+alert("Saved")
+
+}
+
+</script>
+
+</body>
+
+</html>
